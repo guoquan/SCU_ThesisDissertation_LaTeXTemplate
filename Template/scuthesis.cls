@@ -41,7 +41,13 @@
 
 % 使用hyperref宏包去除索引上的颜色标记
 \RequirePackage{hyperref}
-\hypersetup{pdfborder=0 0 0}
+\hypersetup{%
+    pdfborder  = 0 0 0,
+    colorlinks = true, % also fix color in toc
+    linkcolor  = black
+}
+% override default color of \CJKunderline
+\renewcommand{\CJKunderlinecolor}{\color{black}}
 % 使用tocloft宏包修改目录样式
 \RequirePackage{tocloft}
 % 目录中显示目录项和参考文献项
@@ -64,6 +70,8 @@
     \hspace{-1em}文献~\cite{#1}\hspace{-0.3em}
   \endgroup
 }
+% TODO
+% spread position is not supported in makebox with miktex release
 
 % 支持自定义列表环境
 \RequirePackage{enumitem}
@@ -71,7 +79,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amsthm}
-\RequirePackage{mathtools}
+%\RequirePackage{mathtools}
 \RequirePackage{amssymb}
 % 支持float图片环境
 \RequirePackage{float}
@@ -101,7 +109,11 @@
 % CTEX设置各级标题对齐方式，字号，字体及前后段间距
 % “章节”标题，小三号黑体，左对齐，前后段间距为10pt
 \CTEXsetup[
+    name={,}, % chapter are with Arabic numbering
+    number={\arabic{chapter}},
 	format+={\zihao{-3}\rm\heiti\flushleft},
+	nameformat+={\zihao{-3}}, % override some default font-size in miktex
+    titleformat+={\zihao{-3}},
 	beforeskip={-1cm},
 	afterskip={10pt}
 ]{chapter}
@@ -203,7 +215,7 @@
 				{
 					\zihao{-3}\kaishu
 					\begin{tabular}{cc}
-						{\makebox[1.5cm][s]{\textbf{\label@title}}}  & \fillinblank{12cm}{\parbox[b]{12cm}{\centering\textbf{\@CoverTitle}}} \\[0.7cm] % 使用 parbox 支持换行
+						{\makebox[1.5cm][s]{\textbf{\label@title}}}  & \fillinblank{12.15cm}{\parbox[b]{12.15cm}{\centering\textbf{\@CoverTitle}}} \\[0.7cm] % 使用 parbox 支持换行
 						{\makebox[1.5cm][s]{\textbf{\label@author}}} & \fillinblank{4cm}{\textbf{\@author}}
 						{\makebox[2cm][s]{\textbf{\label@accomplishdate}}} \fillinblank{5.8cm}{\textbf{\@accomplishdate}}
 					\end{tabular}
