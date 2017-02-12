@@ -31,9 +31,7 @@
 \fancypagestyle{plain}{\pagestyle{fancy}}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[RE]{\zihao{-5}\songti\@title}
-\fancyhead[RO]{\zihao{-5}\songti\@title}
-\fancyhead[LO,LE]{\zihao{-5}\songti\universityname\thesisname}
+\fancyhead[CO,CE]{\zihao{-5}\songti\universityname\thesisname}
 \fancyfoot[CO,CE]{\zihao{-5}\thepage}
 
 % 使用epstopdf宏包重定向eps输出路径，避免图片错误
