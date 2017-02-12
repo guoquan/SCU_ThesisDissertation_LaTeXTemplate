@@ -70,8 +70,14 @@
     \hspace{-1em}文献~\cite{#1}\hspace{-0.3em}
   \endgroup
 }
-% TODO
-% spread position is not supported in makebox with miktex release
+
+\newcommand{\fillspacetextblock}[2]{
+    \makebox[#1][s]{
+        \begin{CJKfilltwosides}{#1}
+            #2
+        \end{CJKfilltwosides}
+    }
+}
 
 % 支持自定义列表环境
 \RequirePackage{enumitem}
@@ -85,6 +91,8 @@
 \RequirePackage{float}
 % 三线表支持
 \RequirePackage{booktabs}
+% multirow/multicolumn sopport
+\RequirePackage{multirow}
 % 这些命令用于设定各项文档信息的具体内容。
 \newcommand\ENGtitle[1]{\def\@ENGtitle{#1}}
 \newcommand\ENGauthor[1]{\def\@ENGauthor{#1}}
@@ -215,9 +223,9 @@
 				{
 					\zihao{-3}\kaishu
 					\begin{tabular}{cc}
-						{\makebox[1.5cm][s]{\textbf{\label@title}}}  & \fillinblank{12.15cm}{\parbox[b]{12.15cm}{\centering\textbf{\@CoverTitle}}} \\[0.7cm] % 使用 parbox 支持换行
-						{\makebox[1.5cm][s]{\textbf{\label@author}}} & \fillinblank{4cm}{\textbf{\@author}}
-						{\makebox[2cm][s]{\textbf{\label@accomplishdate}}} \fillinblank{5.8cm}{\textbf{\@accomplishdate}}
+						{\fillspacetextblock{1.5cm}{\textbf{\label@title}}}  & \fillinblank{12.2cm}{\parbox[b]{12.2cm}{\centering\textbf{\@CoverTitle}}} \\[0.7cm] % 使用 parbox 支持换行
+						{\fillspacetextblock{1.5cm}{\textbf{\label@author}}} & \fillinblank{4cm}{\textbf{\@author}}
+						\fillspacetextblock{2cm}{\textbf{\label@accomplishdate}}\fillinblank{5.9cm}{\textbf{\@accomplishdate}}
 					\end{tabular}
 				}
 				\\[2.6cm]
@@ -225,15 +233,17 @@
 				{
 					\zihao{-3}\kaishu
 					\begin{tabular}{cc}
-						{\makebox[3.2cm][s]{\textbf{\label@university}}}  & \fillinblank{6.2cm}{\textbf{\university}}
+						{\fillspacetextblock{2.4cm}{\textbf{\label@university}}}  & \fillinblank{7.2cm}{\textbf{\university}}
 						\\[0.8cm]
-						{\makebox[3.2cm][s]{\textbf{\label@supervisor}}}  & \fillinblank{6.2cm}{\textbf{\@supervisor}}
+						{\fillspacetextblock{2.4cm}{\textbf{\label@supervisor}}}  & \fillinblank{7.2cm}{\textbf{\@supervisor}}
 						\\[0.8cm]
-						{\makebox[3.2cm][s]{\textbf{\label@major}}}       & \fillinblank{6.2cm}{\textbf{\@major}}
+						{\fillspacetextblock{2.4cm}{\textbf{\label@major}}}       & \fillinblank{7.2cm}{\textbf{\@major}}
 						\\[0.8cm]
-						{\makebox[3.2cm][s]{\textbf{\label@direction}}}   & \fillinblank{6.2cm}{\textbf{\@direction}}
+						{\fillspacetextblock{2.4cm}{\textbf{\label@direction}}}   & \fillinblank{7.2cm}{\textbf{\@direction}}
 						\\[0.8cm]
-						{\makebox[3.2cm][s]{\textbf{\label@defensedate}}} & \fillinblank{6.2cm}{\textbf{\@defensedate}}
+                        \multicolumn{2}{c}{
+                            {\fillspacetextblock{3.6cm}{\textbf{\label@defensedate}}} \fillinblank{6.2cm}{\textbf{\@defensedate}}
+                        }
 					\end{tabular}
 				}
 			\end{center}
