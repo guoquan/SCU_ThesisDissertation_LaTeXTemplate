@@ -4,7 +4,9 @@
 % 参考：pkuthss-1.2beta
 % 修改日期：2016年6月2日
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{../Template/scuthesis}[2016/05/30 v0.1]
+\ProvidesClass{scuthesis}[2016/05/30 v0.1]
+\ProvidesFile{scuthesis.def}[2017/02/14 v0.1]
+\ProvidesFile{Components/Images/SCU_TITLE.eps}[2017/02/14 v0.1]
 % 声明传入参数，定义对应的论文类别，分别对应博士、硕士和学士学位论文。这里由于tex对中文支持不够，因此不能在此定义论文名称。
 \DeclareOption{doctor}{\def\thesistype{0}}
 \DeclareOption{master}{\def\thesistype{1}}
@@ -408,5 +410,5 @@
 	\newcommand{\creflastconjunction}{,}
 	\newcommand{\crefrangeconjunction}{-}
 	% 加载配置文件
-	\AtEndOfClass{\input{../Template/scuthesis.def}}
+	\AtEndOfClass{\input{scuthesis.def}}
 	\endinput
