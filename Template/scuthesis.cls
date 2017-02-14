@@ -6,7 +6,9 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{scuthesis}[2016/05/30 v0.1]
 \ProvidesFile{scuthesis.def}[2017/02/14 v0.1]
-\ProvidesFile{Components/Images/SCU_TITLE.eps}[2017/02/14 v0.1]
+\ProvidesFile{SCU_TITLE.eps}[2017/02/14 v0.1]
+\ProvidesFile{SCU_TITLE.pdf}[2017/02/14 v0.1]
+
 % 声明传入参数，定义对应的论文类别，分别对应博士、硕士和学士学位论文。这里由于tex对中文支持不够，因此不能在此定义论文名称。
 \DeclareOption{doctor}{\def\thesistype{0}}
 \DeclareOption{master}{\def\thesistype{1}}
@@ -215,7 +217,7 @@
 			% 校名和论文类别、“四川大学”字样
 			{
 				\ \\[-1cm]
-				\includegraphics[width=8cm]{../Template/Components/Images/SCU_TITLE}\\[1.5cm]
+				\includegraphics[width=8cm]{SCU_TITLE}\\[1.5cm]
 					{\makebox[10.5cm][s]{\zihao{-0}\heiti\thesisname}}
 				}
 				\\[2cm]
