@@ -420,5 +420,5 @@
 \newcommand{\crefrangeconjunction}{-}
 
 % 加载配置文件
-\AtEndOfClass{\input{../Template/scuthesis.def}}
+\AtEndOfClass{\input{scuthesis.def}}
 \endinput
