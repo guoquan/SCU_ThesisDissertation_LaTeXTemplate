@@ -66,11 +66,11 @@
 % 定义 \incite 命令，用于如“文献[1]”这样的引用
 \newcommand*{\incite}{}
 \DeclareRobustCommand*{\incite}[1]{
-  \begingroup
-    % \romannumeral-`\x
-    \setcitestyle{numbers}
-    \hspace{-1em}文献~\cite{#1}\hspace{-0.3em}
-  \endgroup
+    \begingroup
+        % \romannumeral-`\x
+        \setcitestyle{numbers}
+        \hspace{-1em}文献~\cite{#1}\hspace{-0.3em}
+    \endgroup
 }
 
 \newcommand{\fillspacetextblock}[2]{%
@@ -132,38 +132,38 @@
 \CTEXsetup[
     name={,}, % chapter are with Arabic numbering
     number={\arabic{chapter}},
-	format+={\zihao{-3}\rm\heiti\flushleft},
-	nameformat+={\zihao{-3}}, % override some default font-size in miktex
+    format+={\zihao{-3}\rm\heiti\flushleft},
+    nameformat+={\zihao{-3}}, % override some default font-size in miktex
     titleformat+={\zihao{-3}},
-	beforeskip={-1cm},
-	afterskip={10pt}
+    beforeskip={-1cm},
+    afterskip={10pt}
 ]{chapter}
 % “节”标题，四号黑体，左对齐，前后段间距为10pt
 \CTEXsetup[
-	format+={\zihao{4}\rm\heiti\flushleft},
-	beforeskip={10pt},
-	afterskip={10pt}
+    format+={\zihao{4}\rm\heiti\flushleft},
+    beforeskip={10pt},
+    afterskip={10pt}
 ]{section}
 % “小节”标题，小四号黑体，左对齐，前后段间距为10pt
 \CTEXsetup[
-	format+={\zihao{-4}\rm\heiti\flushleft},
-	beforeskip={10pt},
-	afterskip={10pt}
+    format+={\zihao{-4}\rm\heiti\flushleft},
+    beforeskip={10pt},
+    afterskip={10pt}
 ]{subsection}
 % “次小节”标题，小四号楷体，左对齐，前后段间距为10pt
 \CTEXsetup[
-	format+={\zihao{-4}\rm\kaishu\flushleft},
-	beforeskip={10pt},
-	afterskip={10pt}
+    format+={\zihao{-4}\rm\kaishu\flushleft},
+    beforeskip={10pt},
+    afterskip={10pt}
 ]{subsubsection}
 % “段”标题，小四号楷体，左对齐，前后段间距为0pt
 \renewcommand{\theparagraph}{(\arabic{paragraph})}
 \CTEXsetup[
-	name={,},
-	number={\theparagraph},
-	format+={\zihao{-4}\rm\kaishu\flushleft},
-	beforeskip={0pt},
-	afterskip={0pt}
+    name={,},
+    number={\theparagraph},
+    format+={\zihao{-4}\rm\kaishu\flushleft},
+    beforeskip={0pt},
+    afterskip={0pt}
 ]{paragraph}
 % 定义\makechaptertitlecenter命令，可使命令后章节标题居中
 \newcommand{\makechaptertitlecenter}{\CTEXsetup[format+={\center}]{chapter}}
@@ -171,33 +171,32 @@
 \newcommand{\makechaptertitleleft}{\CTEXsetup[format+={\flushleft}]{chapter}}
 % 判断论文类别，定义不同论文名称
 \ifthenelse{\equal{\thesistype}{0}}{
-	\def\thesisname{博士学位论文}
-	\def\CHSauthortype{研究生}
-	\def\ENGauthortype{Postgraduate}
-	}{}
+    \def\thesisname{博士学位论文}
+    \def\CHSauthortype{研究生}
+    \def\ENGauthortype{Postgraduate}
+}{}
 \ifthenelse{\equal{\thesistype}{1}}{
-	\def\thesisname{硕士学位论文}
-	\def\CHSauthortype{研究生}
-	\def\ENGauthortype{Postgraduate}
-	}{}
+    \def\thesisname{硕士学位论文}
+    \def\CHSauthortype{研究生}
+    \def\ENGauthortype{Postgraduate}
+}{}
 \ifthenelse{\equal{\thesistype}{2}}{
-	\def\thesisname{学士学位论文}
-	\def\CHSauthortype{本科生}
-	\def\ENGauthortype{Undergraduate}
-	}{}
-
+    \def\thesisname{学士学位论文}
+    \def\CHSauthortype{本科生}
+    \def\ENGauthortype{Undergraduate}
+}{}
 
 % 定义\fillinblank命令，用下划线填充指定的空间。
 \newcommand{\fillinblank}[2]{%
-	\CJKunderline{\makebox[#1]{#2}}%
+    \CJKunderline{\makebox[#1]{#2}}%
 }
 % 定义\putonbottom命令，将对象放到页面底部。
 \newcommand{\putonbottom}[1]{
-	\begin{figure}[b!]%
-		\begin{minipage}{\textwidth}
-			{#1}
-		\end{minipage}
-	\end{figure}
+    \begin{figure}[b!]%
+        \begin{minipage}{\textwidth}
+            {#1}
+        \end{minipage}
+    \end{figure}
 }
 
 % 定义目录标题格式，小三号黑体居中，段前后距10pt
@@ -214,213 +213,212 @@
 
 % 定义\maketoc命令，将自动生成符合要求的目录。
 \newcommand{\maketoc}{
-	\thispagestyle{empty}\cleardoublepage
-	\tableofcontents\pagenumbering{roman}
-	\thispagestyle{fancy}
+    \thispagestyle{empty}
+    \cleardoublepage
+    \tableofcontents\pagenumbering{roman}
+    \thispagestyle{fancy}
 }
 
 % 设定标题页格式。
 \renewcommand\maketitle
 {
-	\cleardoublepage
-	\begin{titlepage}
-		\begin{center}
+    \cleardoublepage
+    \begin{titlepage}
+        \begin{center}
             \ \\[-1cm]
-			% 校名和论文类别、“四川大学”字样
-			{
-				\includegraphics[width=8cm]{SCU_TITLE}
-                \\[1.5cm]
-				\makebox[10.5cm][s]{\zihao{-0}\heiti\thesisname}
-			}
-			\\[2cm]
-			% 论文标题，作者，完成日期
+            % 校名和论文类别、“四川大学”字样
+            \includegraphics[width=8cm]{SCU_TITLE}
+            \\[1.5cm]
+            \makebox[10.5cm][s]{\zihao{-0}\heiti\thesisname}
+            \\[2cm]
+            % 论文标题，作者，完成日期
             \zihao{-3}\kaishu
-			\begin{filltable}
-				\begin{tabular}{cc}
-					\fillspacetextblock{3em}{\textbf{\label@title}}  & \fillinblank{20em}{\parbox[b]{20em}{\centering\textbf{\@CoverTitle}}}\\[0.7cm] % 使用 parbox 支持换行
-					\fillspacetextblock{3em}{\textbf{\label@author}} & \fillinblank{6em}{\textbf{\@author}}%
-					                                                   \fillspacetextblock{4em}{\textbf{\label@accomplishdate}}\fillinblank{10em}{\textbf{\@accomplishdate}}
-				\end{tabular}
+            \begin{filltable}
+                \begin{tabular}{cc}
+                    \fillspacetextblock{3em}{\textbf{\label@title}}  & \fillinblank{20em}{\parbox[b]{20em}{\centering\textbf{\@CoverTitle}}}\\[0.7cm] % 使用 parbox 支持换行
+                    \fillspacetextblock{3em}{\textbf{\label@author}} & \fillinblank{6em}{\textbf{\@author}}%
+                                                                       \fillspacetextblock{4em}{\textbf{\label@accomplishdate}}\fillinblank{10em}{\textbf{\@accomplishdate}}
+                \end{tabular}
             \end{filltable}
-			\ \\[2.6cm]
-			% 培养单位，指导教师，专业等信息
-			\zihao{-3}\kaishu
-			\begin{filltable}
-				\begin{tabular}{cc}
-					\fillspacetextblock{4em}{\textbf{\label@university}} & \fillinblank{14em}{\textbf{\university}}
-					\\[0.8cm]
-					\fillspacetextblock{4em}{\textbf{\label@supervisor}} & \fillinblank{14em}{\textbf{\@supervisor}}
-					\\[0.8cm]
-					\fillspacetextblock{4em}{\textbf{\label@major}}      & \fillinblank{14em}{\textbf{\@major}}
-					\\[0.8cm]
-					\fillspacetextblock{4em}{\textbf{\label@direction}}  & \fillinblank{14em}{\textbf{\@direction}}
-					\\[0.8cm]
+            \ \\[2.6cm]
+            % 培养单位，指导教师，专业等信息
+            \zihao{-3}\kaishu
+            \begin{filltable}
+                \begin{tabular}{cc}
+                    \fillspacetextblock{4em}{\textbf{\label@university}} & \fillinblank{14em}{\textbf{\university}}
+                    \\[0.8cm]
+                    \fillspacetextblock{4em}{\textbf{\label@supervisor}} & \fillinblank{14em}{\textbf{\@supervisor}}
+                    \\[0.8cm]
+                    \fillspacetextblock{4em}{\textbf{\label@major}}      & \fillinblank{14em}{\textbf{\@major}}
+                    \\[0.8cm]
+                    \fillspacetextblock{4em}{\textbf{\label@direction}}  & \fillinblank{14em}{\textbf{\@direction}}
+                    \\[0.8cm]
                     \multicolumn{2}{c}{
                         \fillspacetextblock{6em}{\textbf{\label@defensedate}}\hspace{2\tabcolsep}\fillinblank{12em}{\textbf{\@defensedate}}
                     }
-				\end{tabular}
+                \end{tabular}
             \end{filltable}
-		\end{center}
-	\end{titlepage}
-	\thispagestyle{empty}
+            \end{center}
+    \end{titlepage}
+    \thispagestyle{empty}
 }
 
-	% 重定义autoref标签
-	%\renewcommand{\partautorefname}{\part}
-	%\renewcommand{\figureautorefname}{\figurename}
-	%\renewcommand{\tableautorefname}{\tablename}
-	%\renewcommand{\appendixautorefname}{\appendixname}
-	%\renewcommand{\equationautorefname}{\equationname}
-	%\renewcommand{\Itemautorefname}{\Itemname}
+% 重定义autoref标签
+%\renewcommand{\partautorefname}{\part}
+%\renewcommand{\figureautorefname}{\figurename}
+%\renewcommand{\tableautorefname}{\tablename}
+%\renewcommand{\appendixautorefname}{\appendixname}
+%\renewcommand{\equationautorefname}{\equationname}
+%\renewcommand{\Itemautorefname}{\Itemname}
 
-	%\newcommand{\equationname}{式}
-	%\renewcommand{\equationautorefname}{\equationname}
+%\newcommand{\equationname}{式}
+%\renewcommand{\equationautorefname}{\equationname}
 
-	% 定义\specialchap命令，生成没有编号的章节。从pkuthss-1.2beta保留，本模版中未使用。
-	\newcommand{\specialchap}[1]{
-		\chapter*{#1}\markboth{#1}{}
-		\addcontentsline{toc}{chapter}{#1}\phantomsection
-	}
+% 定义\specialchap命令，生成没有编号的章节。从pkuthss-1.2beta保留，本模版中未使用。
+\newcommand{\specialchap}[1]{
+    \chapter*{#1}\markboth{#1}{}
+    \addcontentsline{toc}{chapter}{#1}\phantomsection
+}
 
-	% 定义\autograph命令，生成版权授权书等的签名栏。
-	\newcommand{\autograph}{
-		\begin{center}
-			\begin{tabular*}{\textwidth}{p{0.5\textwidth}p{0.5\textwidth}}
-				学位论文作者签名：& 导师签名：\\[1cm]
-				签字日期：{\quad}年{\quad}月{\quad}日 & 签字日期：{\quad}年{\quad}月{\quad}日
-			\end{tabular*}
-		\end{center}
-	}
+% 定义\autograph命令，生成版权授权书等的签名栏。
+\newcommand{\autograph}{
+    \begin{center}
+        \begin{tabular*}{\textwidth}{p{0.5\textwidth}p{0.5\textwidth}}
+            学位论文作者签名：                    & 导师签名：
+            \\[1cm]
+            签字日期：{\quad}年{\quad}月{\quad}日 & 签字日期：{\quad}年{\quad}月{\quad}日
+        \end{tabular*}
+    \end{center}
+}
 
-	% 定义中文摘要环境
-	\newenvironment{CHSabstract}
-	{
-		\cleardoublepage
+% 定义中文摘要环境
+\newenvironment{CHSabstract}
+{
+    \cleardoublepage
+    \par\ \par
+    \begin{center}
+        \zihao{-2}\songti\@title
         \par\ \par
-		\begin{center}
-			\zihao{-2}\songti\@title
-            \par\ \par
-			\zihao{-4}\kaishu{\@major\label@major}
-            \par\ \par
-			\heiti{\CHSauthortype} \; \kaishu{\@author}
-			\quad\quad
-			\heiti{\label@supervisor} \; \kaishu{\@supervisor}
-		\end{center}
+        \zihao{-4}\songti\@major\label@major
         \par\ \par
-	}
-	{
-        \par
-		\noindent\textbf{关键词：}\@keywords
-	}
-	% 定义英文摘要环境
-	\newenvironment{ENGabstract}
-	{
-		\cleardoublepage
-		\par\ \par
-		\begin{center}
-			\zihao{-2}{\@ENGtitle}
-            \par\ \par
-			\zihao{-4}\@ENGmajor
-            \par\ \par
-			\textbf{{\ENGauthortype}:} \@ENGauthor
-			\quad\quad
-			\textbf{{\label@ENGsupervisor}:} \@ENGsupervisor
-		\end{center}
-		\par\ \par
-	}
-	{
-        \par
-		\noindent\textbf{Keywords:} \@ENGkeywords
-	}
-	% 定义参考文献环境
-	\newenvironment{reference}
-	{
-		\cleardoublepage
-		\zihao{-5}\songti
-	}
+        \heiti\CHSauthortype \; \kaishu\@author
+        \quad\quad
+        \heiti\label@supervisor \; \kaishu\@supervisor
+    \end{center}
+    \par\ \par
+}
+{
+    \par
+    \noindent\textbf{关键词：}\@keywords
+}
+% 定义英文摘要环境
+\newenvironment{ENGabstract}
+{
+    \cleardoublepage
+    \par\ \par
+    \begin{center}
+        \zihao{-2}\@ENGtitle
+        \par\ \par
+        \zihao{-4}\@ENGmajor
+        \par\ \par
+        \textbf{{\ENGauthortype}:} \@ENGauthor
+        \quad\quad
+        \textbf{{\label@ENGsupervisor}:} \@ENGsupervisor
+    \end{center}
+    \par\ \par
+}
+{
+    \par
+    \noindent\textbf{Keywords:} \@ENGkeywords
+}
+% 定义参考文献环境
+\newenvironment{reference}
+{
+    \cleardoublepage
+    \zihao{-5}\songti
+}
 
-	% 设置文档默认行距为20pt
-	\setlength{\baselineskip}{20pt}
-	% 加载cleveref宏，支持智能化引用
-	\RequirePackage{cleveref}
-	\crefformat{chapter}{第~#2#1#3~章}
-  \Crefformat{chapter}{第~#2#1#3~章}
-	\crefrangeformat{chapter}{第~#3#1#4~-~#5#2#6~章}
-  \Crefrangeformat{chapter}{第~#3#1#4~-~#5#2#6~章}
-  \crefmultiformat{chapter}{第~#2#1#3~章}{和第~#2#1#3~章}{,~第~#2#1#3~章}{和第~#2#1#3~章}
-  \Crefmultiformat{chapter}{第~#2#1#3~章}{和第~#2#1#3~章}{,~第~#2#1#3~章}{和第~#2#1#3~章}
-  \crefrangemultiformat{chapter}{第~#3#1#4~-~#5#2#6~章}{和第~#3#1#4~-~#5#2#6~章}{,~ 第~#3#1#4~-~#5#2#6~章}{和第~#3#1#4~-~#5#2#6~章}
-  \Crefrangemultiformat{chapter}{第~#3#1#4~-~#5#2#6~章}{和第~#3#1#4~-~#5#2#6~章}{,~ 第~#3#1#4~-~#5#2#6~章}{和第~#3#1#4~-~#5#2#6~章}
+% 设置文档默认行距为20pt
+\setlength{\baselineskip}{20pt}
+% 加载cleveref宏，支持智能化引用
+\RequirePackage{cleveref}
+\crefformat{chapter}{第~#2#1#3~章}
+\Crefformat{chapter}{第~#2#1#3~章}
+\crefrangeformat{chapter}{第~#3#1#4~-~#5#2#6~章}
+\Crefrangeformat{chapter}{第~#3#1#4~-~#5#2#6~章}
+\crefmultiformat{chapter}{第~#2#1#3~章}{和第~#2#1#3~章}{,~第~#2#1#3~章}{和第~#2#1#3~章}
+\Crefmultiformat{chapter}{第~#2#1#3~章}{和第~#2#1#3~章}{,~第~#2#1#3~章}{和第~#2#1#3~章}
+\crefrangemultiformat{chapter}{第~#3#1#4~-~#5#2#6~章}{和第~#3#1#4~-~#5#2#6~章}{,~ 第~#3#1#4~-~#5#2#6~章}{和第~#3#1#4~-~#5#2#6~章}
+\Crefrangemultiformat{chapter}{第~#3#1#4~-~#5#2#6~章}{和第~#3#1#4~-~#5#2#6~章}{,~ 第~#3#1#4~-~#5#2#6~章}{和第~#3#1#4~-~#5#2#6~章}
 
-	\crefformat{section}{第~#2#1#3~节}
-  \Crefformat{section}{第~#2#1#3~节}
-	\crefrangeformat{section}{第~#3#1#4~-~#5#2#6~节}
-  \Crefrangeformat{section}{第~#3#1#4~-~#5#2#6~节}
-  \crefmultiformat{section}{第~#2#1#3~节}{和第~#2#1#3~节}{,~第~#2#1#3~节}{和第~#2#1#3~节}
-  \Crefmultiformat{section}{第~#2#1#3~节}{和第~#2#1#3~节}{,~第~#2#1#3~节}{和第~#2#1#3~节}
-  \crefrangemultiformat{section}{第~#3#1#4~-~#5#2#6~节}{和第~#3#1#4~-~#5#2#6~节}{,~ 第~#3#1#4~-~#5#2#6~节}{和第~#3#1#4~-~#5#2#6~节}
-  \Crefrangemultiformat{section}{第~#3#1#4~-~#5#2#6~节}{和第~#3#1#4~-~#5#2#6~节}{,~ 第~#3#1#4~-~#5#2#6~节}{和第~#3#1#4~-~#5#2#6~节}
+\crefformat{section}{第~#2#1#3~节}
+\Crefformat{section}{第~#2#1#3~节}
+\crefrangeformat{section}{第~#3#1#4~-~#5#2#6~节}
+\Crefrangeformat{section}{第~#3#1#4~-~#5#2#6~节}
+\crefmultiformat{section}{第~#2#1#3~节}{和第~#2#1#3~节}{,~第~#2#1#3~节}{和第~#2#1#3~节}
+\Crefmultiformat{section}{第~#2#1#3~节}{和第~#2#1#3~节}{,~第~#2#1#3~节}{和第~#2#1#3~节}
+\crefrangemultiformat{section}{第~#3#1#4~-~#5#2#6~节}{和第~#3#1#4~-~#5#2#6~节}{,~ 第~#3#1#4~-~#5#2#6~节}{和第~#3#1#4~-~#5#2#6~节}
+\Crefrangemultiformat{section}{第~#3#1#4~-~#5#2#6~节}{和第~#3#1#4~-~#5#2#6~节}{,~ 第~#3#1#4~-~#5#2#6~节}{和第~#3#1#4~-~#5#2#6~节}
 
-	\crefformat{subsection}{第~#2#1#3~小节}
-  \Crefformat{subsection}{第~#2#1#3~小节}
-	\crefrangeformat{subsection}{第~#3#1#4~-~#5#2#6~小节}
-  \Crefrangeformat{subsection}{第~#3#1#4~-~#5#2#6~小节}
-  \crefmultiformat{subsection}{第~#2#1#3~小节}{和第~#2#1#3~小节}{,~第~#2#1#3~小节}{和第~#2#1#3~小节}
-  \Crefmultiformat{subsection}{第~#2#1#3~小节}{和第~#2#1#3~小节}{,~第~#2#1#3~小节}{和第~#2#1#3~小节}
-  \crefrangemultiformat{subsection}{第~#3#1#4~-~#5#2#6~小节}{和第~#3#1#4~-~#5#2#6~小节}{,~ 第~#3#1#4~-~#5#2#6~小节}{和第~#3#1#4~-~#5#2#6~小节}
-  \Crefrangemultiformat{subsection}{第~#3#1#4~-~#5#2#6~小节}{和第~#3#1#4~-~#5#2#6~小节}{,~ 第~#3#1#4~-~#5#2#6~小节}{和第~#3#1#4~-~#5#2#6~小节}
+\crefformat{subsection}{第~#2#1#3~小节}
+\Crefformat{subsection}{第~#2#1#3~小节}
+\crefrangeformat{subsection}{第~#3#1#4~-~#5#2#6~小节}
+\Crefrangeformat{subsection}{第~#3#1#4~-~#5#2#6~小节}
+\crefmultiformat{subsection}{第~#2#1#3~小节}{和第~#2#1#3~小节}{,~第~#2#1#3~小节}{和第~#2#1#3~小节}
+\Crefmultiformat{subsection}{第~#2#1#3~小节}{和第~#2#1#3~小节}{,~第~#2#1#3~小节}{和第~#2#1#3~小节}
+\crefrangemultiformat{subsection}{第~#3#1#4~-~#5#2#6~小节}{和第~#3#1#4~-~#5#2#6~小节}{,~ 第~#3#1#4~-~#5#2#6~小节}{和第~#3#1#4~-~#5#2#6~小节}
+\Crefrangemultiformat{subsection}{第~#3#1#4~-~#5#2#6~小节}{和第~#3#1#4~-~#5#2#6~小节}{,~ 第~#3#1#4~-~#5#2#6~小节}{和第~#3#1#4~-~#5#2#6~小节}
 
-	\crefformat{subsubsection}{第~#2#1#3~项}
-  \Crefformat{subsubsection}{第~#2#1#3~项}
-	\crefrangeformat{subsubsection}{第~#3#1#4~-~#5#2#6~项}
-  \Crefrangeformat{subsubsection}{第~#3#1#4~-~#5#2#6~项}
-  \crefmultiformat{subsubsection}{第~#2#1#3~项}{和第~#2#1#3~项}{,~第~#2#1#3~项}{和第~#2#1#3~项}
-  \Crefmultiformat{subsubsection}{第~#2#1#3~项}{和第~#2#1#3~项}{,~第~#2#1#3~项}{和第~#2#1#3~项}
-  \crefrangemultiformat{subsubsection}{第~#3#1#4~-~#5#2#6~项}{和第~#3#1#4~-~#5#2#6~项}{,~ 第~#3#1#4~-~#5#2#6~项}{和第~#3#1#4~-~#5#2#6~项}
-  \Crefrangemultiformat{subsubsection}{第~#3#1#4~-~#5#2#6~项}{和第~#3#1#4~-~#5#2#6~项}{,~ 第~#3#1#4~-~#5#2#6~项}{和第~#3#1#4~-~#5#2#6~项}
+\crefformat{subsubsection}{第~#2#1#3~项}
+\Crefformat{subsubsection}{第~#2#1#3~项}
+\crefrangeformat{subsubsection}{第~#3#1#4~-~#5#2#6~项}
+\Crefrangeformat{subsubsection}{第~#3#1#4~-~#5#2#6~项}
+\crefmultiformat{subsubsection}{第~#2#1#3~项}{和第~#2#1#3~项}{,~第~#2#1#3~项}{和第~#2#1#3~项}
+\Crefmultiformat{subsubsection}{第~#2#1#3~项}{和第~#2#1#3~项}{,~第~#2#1#3~项}{和第~#2#1#3~项}
+\crefrangemultiformat{subsubsection}{第~#3#1#4~-~#5#2#6~项}{和第~#3#1#4~-~#5#2#6~项}{,~ 第~#3#1#4~-~#5#2#6~项}{和第~#3#1#4~-~#5#2#6~项}
+\Crefrangemultiformat{subsubsection}{第~#3#1#4~-~#5#2#6~项}{和第~#3#1#4~-~#5#2#6~项}{,~ 第~#3#1#4~-~#5#2#6~项}{和第~#3#1#4~-~#5#2#6~项}
 
-	\crefname{table}{表}{表}
-  \Crefname{table}{表}{表}
-	\creflabelformat{table}{#2#1#3~}
-	\crefrangelabelformat{table}{#3#1#4~-~#5#2#6~}
-  \crefmultiformat{table}{表~#2#1#3}{和表~#2#1#3}{,~表~#2#1#3}{和表~#2#1#3}
-  \Crefmultiformat{table}{表~#2#1#3}{和表~#2#1#3}{,~表~#2#1#3}{和表~#2#1#3}
-  \crefrangemultiformat{table}{表~#3#1#4~-~#5#2#6}{和表~#3#1#4~-~#5#2#6}{,~表~#3#1#4~-~#5#2#6}{和表~#3#1#4~-~#5#2#6}
-  \Crefrangemultiformat{table}{表~#3#1#4~-~#5#2#6}{和表~#3#1#4~-~#5#2#6}{,~表~#3#1#4~-~#5#2#6}{和表~#3#1#4~-~#5#2#6}
+\crefname{table}{表}{表}
+\Crefname{table}{表}{表}
+\creflabelformat{table}{#2#1#3~}
+\crefrangelabelformat{table}{#3#1#4~-~#5#2#6~}
+\crefmultiformat{table}{表~#2#1#3}{和表~#2#1#3}{,~表~#2#1#3}{和表~#2#1#3}
+\Crefmultiformat{table}{表~#2#1#3}{和表~#2#1#3}{,~表~#2#1#3}{和表~#2#1#3}
+\crefrangemultiformat{table}{表~#3#1#4~-~#5#2#6}{和表~#3#1#4~-~#5#2#6}{,~表~#3#1#4~-~#5#2#6}{和表~#3#1#4~-~#5#2#6}
+\Crefrangemultiformat{table}{表~#3#1#4~-~#5#2#6}{和表~#3#1#4~-~#5#2#6}{,~表~#3#1#4~-~#5#2#6}{和表~#3#1#4~-~#5#2#6}
 
-	\crefname{figure}{图}{图}
-  \Crefname{figure}{图}{图}
-	\creflabelformat{figure}{#2#1#3~}
-	\crefrangelabelformat{figure}{#3#1#4~-~#5#2#6~}
-  \crefmultiformat{figure}{图~#2#1#3}{和图~#2#1#3}{,~图~#2#1#3}{和图~#2#1#3}
-  \Crefmultiformat{figure}{图~#2#1#3}{和图~#2#1#3}{,~图~#2#1#3}{和图~#2#1#3}
-  \crefrangemultiformat{figure}{图~#3#1#4~-~#5#2#6}{和图~#3#1#4~-~#5#2#6}{,~图~#3#1#4~-~#5#2#6}{和图~#3#1#4~-~#5#2#6}
-  \Crefrangemultiformat{figure}{图~#3#1#4~-~#5#2#6}{和图~#3#1#4~-~#5#2#6}{,~图~#3#1#4~-~#5#2#6}{和图~#3#1#4~-~#5#2#6}
+\crefname{figure}{图}{图}
+\Crefname{figure}{图}{图}
+\creflabelformat{figure}{#2#1#3~}
+\crefrangelabelformat{figure}{#3#1#4~-~#5#2#6~}
+\crefmultiformat{figure}{图~#2#1#3}{和图~#2#1#3}{,~图~#2#1#3}{和图~#2#1#3}
+\Crefmultiformat{figure}{图~#2#1#3}{和图~#2#1#3}{,~图~#2#1#3}{和图~#2#1#3}
+\crefrangemultiformat{figure}{图~#3#1#4~-~#5#2#6}{和图~#3#1#4~-~#5#2#6}{,~图~#3#1#4~-~#5#2#6}{和图~#3#1#4~-~#5#2#6}
+\Crefrangemultiformat{figure}{图~#3#1#4~-~#5#2#6}{和图~#3#1#4~-~#5#2#6}{,~图~#3#1#4~-~#5#2#6}{和图~#3#1#4~-~#5#2#6}
 
-	\crefname{equation}{式}{式}
-  \Crefname{equation}{式}{式}
-	\creflabelformat{equation}{(#2#1#3)~}
-	\crefrangelabelformat{equation}{(#3#1#4)~-~(#5#2#6)~}
-  \crefmultiformat{equation}{式~(#2#1#3)}{和式~(#2#1#3)}{,~式~(#2#1#3)}{和式~(#2#1#3)}
-  \Crefmultiformat{equation}{式~(#2#1#3)}{和式~(#2#1#3)}{,~式~(#2#1#3)}{和式~(#2#1#3)}
-  \crefrangemultiformat{equation}{式~(#3#1#4)~-~(#5#2#6)}{和式~(#3#1#4)~-~(#5#2#6)}{,~式~(#3#1#4)~-~(#5#2#6)}{和式~(#3#1#4)~-~(#5#2#6)}
-  \Crefrangemultiformat{equation}{式~(#3#1#4)~-~(#5#2#6)}{和式~(#3#1#4)~-~(#5#2#6)}{,~式~(#3#1#4)~-~(#5#2#6)}{和式~(#3#1#4)~-~(#5#2#6)}
+\crefname{equation}{式}{式}
+\Crefname{equation}{式}{式}
+\creflabelformat{equation}{(#2#1#3)~}
+\crefrangelabelformat{equation}{(#3#1#4)~-~(#5#2#6)~}
+\crefmultiformat{equation}{式~(#2#1#3)}{和式~(#2#1#3)}{,~式~(#2#1#3)}{和式~(#2#1#3)}
+\Crefmultiformat{equation}{式~(#2#1#3)}{和式~(#2#1#3)}{,~式~(#2#1#3)}{和式~(#2#1#3)}
+\crefrangemultiformat{equation}{式~(#3#1#4)~-~(#5#2#6)}{和式~(#3#1#4)~-~(#5#2#6)}{,~式~(#3#1#4)~-~(#5#2#6)}{和式~(#3#1#4)~-~(#5#2#6)}
+\Crefrangemultiformat{equation}{式~(#3#1#4)~-~(#5#2#6)}{和式~(#3#1#4)~-~(#5#2#6)}{,~式~(#3#1#4)~-~(#5#2#6)}{和式~(#3#1#4)~-~(#5#2#6)}
 
-  \crefformat{page}{第~#2#1#3~页}
-  \Crefformat{page}{第~#2#1#3~页}
-  \crefrangeformat{page}{第~#3#1#4~-~#5#2#6~页}
-  \Crefrangeformat{page}{第~#3#1#4~-~#5#2#6~页}
-  \crefmultiformat{page}{第~#2#1#3~页}{和第~#2#1#3~页}{,~第~#2#1#3~页}{和第~#2#1#3~页}
-  \Crefmultiformat{page}{第~#2#1#3~页}{和第~#2#1#3~页}{,~第~#2#1#3~页}{和第~#2#1#3~页}
-  \crefrangemultiformat{page}{第~#3#1#4~-~#5#2#6~页}{和第~#3#1#4~-~#5#2#6~页}{,~ 第~#3#1#4~-~#5#2#6~页}{和第~#3#1#4~-~#5#2#6~页}
-  \Crefrangemultiformat{page}{第~#3#1#4~-~#5#2#6~页}{和第~#3#1#4~-~#5#2#6~页}{,~ 第~#3#1#4~-~#5#2#6~页}{和第~#3#1#4~-~#5#2#6~页}
+\crefformat{page}{第~#2#1#3~页}
+\Crefformat{page}{第~#2#1#3~页}
+\crefrangeformat{page}{第~#3#1#4~-~#5#2#6~页}
+\Crefrangeformat{page}{第~#3#1#4~-~#5#2#6~页}
+\crefmultiformat{page}{第~#2#1#3~页}{和第~#2#1#3~页}{,~第~#2#1#3~页}{和第~#2#1#3~页}
+\Crefmultiformat{page}{第~#2#1#3~页}{和第~#2#1#3~页}{,~第~#2#1#3~页}{和第~#2#1#3~页}
+\crefrangemultiformat{page}{第~#3#1#4~-~#5#2#6~页}{和第~#3#1#4~-~#5#2#6~页}{,~ 第~#3#1#4~-~#5#2#6~页}{和第~#3#1#4~-~#5#2#6~页}
+\Crefrangemultiformat{page}{第~#3#1#4~-~#5#2#6~页}{和第~#3#1#4~-~#5#2#6~页}{,~ 第~#3#1#4~-~#5#2#6~页}{和第~#3#1#4~-~#5#2#6~页}
 
+\newcommand{\crefpairconjunction}{,}
+\newcommand{\crefmiddleconjunction}{,}
+\newcommand{\creflastconjunction}{,}
+\newcommand{\crefrangeconjunction}{-}
 
-
-	\newcommand{\crefpairconjunction}{,}
-	\newcommand{\crefmiddleconjunction}{,}
-	\newcommand{\creflastconjunction}{,}
-	\newcommand{\crefrangeconjunction}{-}
-	% 加载配置文件
-	\AtEndOfClass{\input{scuthesis.def}}
-	\endinput
+% 加载配置文件
+\AtEndOfClass{\input{../Template/scuthesis.def}}
+\endinput
