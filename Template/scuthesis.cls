@@ -73,6 +73,8 @@
     \endgroup
 }
 
+\RequirePackage{calc}
+
 \newcommand{\fillspacetextblock}[2]{%
     \makebox[#1][s]{%
         \begin{CJKfilltwosides}{#1}%
@@ -235,9 +237,9 @@
             \zihao{-3}\kaishu
             \begin{filltable}
                 \begin{tabular}{cc}
-                    \fillspacetextblock{3em}{\textbf{\label@title}}  & \fillinblank{20em}{\parbox[b]{20em}{\centering\textbf{\@CoverTitle}}}\\[0.7cm] % 使用 parbox 支持换行
-                    \fillspacetextblock{3em}{\textbf{\label@author}} & \fillinblank{6em}{\textbf{\@author}}%
-                                                                       \fillspacetextblock{4em}{\textbf{\label@accomplishdate}}\fillinblank{10em}{\textbf{\@accomplishdate}}
+                    \fillspacetextblock{3em}{\textbf{\label@title}}  & \fillinblank{21em}{\parbox[b]{21em}{\centering\@CoverTitle}}\\[0.7cm] % 使用 parbox 支持换行
+                    \fillspacetextblock{3em}{\textbf{\label@author}} & \fillinblank{7em-2\tabcolsep-\widthof{\quad}}{\@author}\quad%
+                                                                       \fillspacetextblock{4em}{\textbf{\label@accomplishdate}}\hspace{2\tabcolsep}\fillinblank{10em}{\@accomplishdate}
                 \end{tabular}
             \end{filltable}
             \ \\[2.6cm]
@@ -245,16 +247,16 @@
             \zihao{-3}\kaishu
             \begin{filltable}
                 \begin{tabular}{cc}
-                    \fillspacetextblock{4em}{\textbf{\label@university}} & \fillinblank{14em}{\textbf{\university}}
+                    \fillspacetextblock{4em}{\textbf{\label@university}} & \fillinblank{14em}{\university}
                     \\[0.8cm]
-                    \fillspacetextblock{4em}{\textbf{\label@supervisor}} & \fillinblank{14em}{\textbf{\@supervisor}}
+                    \fillspacetextblock{4em}{\textbf{\label@supervisor}} & \fillinblank{14em}{\@supervisor}
                     \\[0.8cm]
-                    \fillspacetextblock{4em}{\textbf{\label@major}}      & \fillinblank{14em}{\textbf{\@major}}
+                    \fillspacetextblock{4em}{\textbf{\label@major}}      & \fillinblank{14em}{\@major}
                     \\[0.8cm]
-                    \fillspacetextblock{4em}{\textbf{\label@direction}}  & \fillinblank{14em}{\textbf{\@direction}}
+                    \fillspacetextblock{4em}{\textbf{\label@direction}}  & \fillinblank{14em}{\@direction}
                     \\[0.8cm]
                     \multicolumn{2}{c}{
-                        \fillspacetextblock{6em}{\textbf{\label@defensedate}}\hspace{2\tabcolsep}\fillinblank{12em}{\textbf{\@defensedate}}
+                        \fillspacetextblock{6em}{\textbf{\label@defensedate}}\hspace{2\tabcolsep}\fillinblank{12em}{\@defensedate}
                     }
                 \end{tabular}
             \end{filltable}
