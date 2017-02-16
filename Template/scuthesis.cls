@@ -73,13 +73,24 @@
   \endgroup
 }
 
-\newcommand{\fillspacetextblock}[2]{
-    \makebox[#1][s]{
-        \begin{CJKfilltwosides}{#1}
-            #2
-        \end{CJKfilltwosides}
-    }
+\newcommand{\fillspacetextblock}[2]{%
+    \makebox[#1][s]{%
+        \begin{CJKfilltwosides}{#1}%
+            #2%
+        \end{CJKfilltwosides}%
+    }%
 }
+
+\newdimen\origiwspc
+\newenvironment{filltable}{
+    %\setlength{\tabcolsep}{0em}
+    \origiwspc=\fontdimen2\font
+    \fontdimen2\font=0.00001pt
+}
+{
+    \fontdimen2\font=\origiwspc
+}
+
 
 % 支持自定义列表环境
 \RequirePackage{enumitem}
@@ -177,8 +188,8 @@
 
 
 % 定义\fillinblank命令，用下划线填充指定的空间。
-\newcommand{\fillinblank}[2]{
-	\CJKunderline{\makebox[#1]{#2}}
+\newcommand{\fillinblank}[2]{%
+	\CJKunderline{\makebox[#1]{#2}}%
 }
 % 定义\putonbottom命令，将对象放到页面底部。
 \newcommand{\putonbottom}[1]{
@@ -214,44 +225,45 @@
 	\cleardoublepage
 	\begin{titlepage}
 		\begin{center}
+            \ \\[-1cm]
 			% 校名和论文类别、“四川大学”字样
 			{
-				\ \\[-1cm]
-				\includegraphics[width=8cm]{SCU_TITLE}\\[1.5cm]
-					{\makebox[10.5cm][s]{\zihao{-0}\heiti\thesisname}}
-				}
-				\\[2cm]
-				% 论文标题，作者，完成日期
-				{
-					\zihao{-3}\kaishu
-					\begin{tabular}{cc}
-						{\fillspacetextblock{1.5cm}{\textbf{\label@title}}}  & \fillinblank{12.2cm}{\parbox[b]{12.2cm}{\centering\textbf{\@CoverTitle}}} \\[0.7cm] % 使用 parbox 支持换行
-						{\fillspacetextblock{1.5cm}{\textbf{\label@author}}} & \fillinblank{4cm}{\textbf{\@author}}
-						\fillspacetextblock{2cm}{\textbf{\label@accomplishdate}}\fillinblank{5.9cm}{\textbf{\@accomplishdate}}
-					\end{tabular}
-				}
-				\\[2.6cm]
-				% 培养单位，指导教师，专业等信息
-				{
-					\zihao{-3}\kaishu
-					\begin{tabular}{cc}
-						{\fillspacetextblock{2.4cm}{\textbf{\label@university}}}  & \fillinblank{7.2cm}{\textbf{\university}}
-						\\[0.8cm]
-						{\fillspacetextblock{2.4cm}{\textbf{\label@supervisor}}}  & \fillinblank{7.2cm}{\textbf{\@supervisor}}
-						\\[0.8cm]
-						{\fillspacetextblock{2.4cm}{\textbf{\label@major}}}       & \fillinblank{7.2cm}{\textbf{\@major}}
-						\\[0.8cm]
-						{\fillspacetextblock{2.4cm}{\textbf{\label@direction}}}   & \fillinblank{7.2cm}{\textbf{\@direction}}
-						\\[0.8cm]
-                        \multicolumn{2}{c}{
-                            {\fillspacetextblock{3.6cm}{\textbf{\label@defensedate}}} \fillinblank{6.2cm}{\textbf{\@defensedate}}
-                        }
-					\end{tabular}
-				}
-			\end{center}
-		\end{titlepage}
-		\thispagestyle{empty}
-	}
+				\includegraphics[width=8cm]{../Template/Components/Images/SCU_TITLE}
+                \\[1.5cm]
+				\makebox[10.5cm][s]{\zihao{-0}\heiti\thesisname}
+			}
+			\\[2cm]
+			% 论文标题，作者，完成日期
+            \zihao{-3}\kaishu
+			\begin{filltable}
+				\begin{tabular}{cc}
+					\fillspacetextblock{3em}{\textbf{\label@title}}  & \fillinblank{20em}{\parbox[b]{20em}{\centering\textbf{\@CoverTitle}}}\\[0.7cm] % 使用 parbox 支持换行
+					\fillspacetextblock{3em}{\textbf{\label@author}} & \fillinblank{6em}{\textbf{\@author}}%
+					                                                   \fillspacetextblock{4em}{\textbf{\label@accomplishdate}}\fillinblank{10em}{\textbf{\@accomplishdate}}
+				\end{tabular}
+            \end{filltable}
+			\ \\[2.6cm]
+			% 培养单位，指导教师，专业等信息
+			\zihao{-3}\kaishu
+			\begin{filltable}
+				\begin{tabular}{cc}
+					\fillspacetextblock{4em}{\textbf{\label@university}} & \fillinblank{14em}{\textbf{\university}}
+					\\[0.8cm]
+					\fillspacetextblock{4em}{\textbf{\label@supervisor}} & \fillinblank{14em}{\textbf{\@supervisor}}
+					\\[0.8cm]
+					\fillspacetextblock{4em}{\textbf{\label@major}}      & \fillinblank{14em}{\textbf{\@major}}
+					\\[0.8cm]
+					\fillspacetextblock{4em}{\textbf{\label@direction}}  & \fillinblank{14em}{\textbf{\@direction}}
+					\\[0.8cm]
+                    \multicolumn{2}{c}{
+                        \fillspacetextblock{6em}{\textbf{\label@defensedate}}\hspace{2\tabcolsep}\fillinblank{12em}{\textbf{\@defensedate}}
+                    }
+				\end{tabular}
+            \end{filltable}
+		\end{center}
+	\end{titlepage}
+	\thispagestyle{empty}
+}
 
 	% 重定义autoref标签
 	%\renewcommand{\partautorefname}{\part}
@@ -284,49 +296,47 @@
 	\newenvironment{CHSabstract}
 	{
 		\cleardoublepage
-		\ \vspace{0cm}\par
+        \par\ \par
 		\begin{center}
-			\zihao{-2}\songti{\@title} \\[0.5cm]
-			\zihao{-4}
-			{\heiti{{\label@major}{：}}}{\kaishu{\@major}} \\[0.5cm]
-			{\heiti{{\CHSauthortype}{：}}}{\kaishu{\@author}}
-			\quad
-			{\heiti{{\label@supervisor}{：}}}{\kaishu{\@supervisor}}
+			\zihao{-2}\songti\@title
+            \par\ \par
+			\zihao{-4}\kaishu{\@major\label@major}
+            \par\ \par
+			\heiti{\CHSauthortype} \; \kaishu{\@author}
+			\quad\quad
+			\heiti{\label@supervisor} \; \kaishu{\@supervisor}
 		\end{center}
-		\ \vspace{0cm}\par
-		%\ \\[-0.5cm]
+        \par\ \par
 	}
 	{
-		\vspace{1em}\par
+        \par
 		\noindent\textbf{关键词：}\@keywords
-		%\putonbottom{\textbf{关键词：}\@keywords}
 	}
 	% 定义英文摘要环境
 	\newenvironment{ENGabstract}
 	{
 		\cleardoublepage
-		\ \vspace{0cm}\par
+		\par\ \par
 		\begin{center}
-			\zihao{-2}{\@ENGtitle} \\[0.5cm]
-			\zihao{-4}
-			{\textbf{{\label@ENGmajor}{: }}}{{\@ENGmajor}} \\[0.5cm]
-			{\textbf{{\ENGauthortype}{: }}}{{\@ENGauthor}}
-			\quad
-			{\textbf{{\label@ENGsupervisor}{: }}}{{\@ENGsupervisor}}
+			\zihao{-2}{\@ENGtitle}
+            \par\ \par
+			\zihao{-4}\@ENGmajor
+            \par\ \par
+			\textbf{{\ENGauthortype}:} \@ENGauthor
+			\quad\quad
+			\textbf{{\label@ENGsupervisor}:} \@ENGsupervisor
 		\end{center}
-		\ \vspace{0cm}\par
-		%\ \\[-0.5cm]\setlength\parindent{2em}
+		\par\ \par
 	}
 	{
-		\vspace{1em}\par
-		\noindent\textbf{Keywords:} \@ENGkeywords%\putonbottom{\textbf{Keywords:} \@ENGkeywords}
+        \par
+		\noindent\textbf{Keywords:} \@ENGkeywords
 	}
 	% 定义参考文献环境
 	\newenvironment{reference}
 	{
 		\cleardoublepage
-		\zihao{-5}
-		\setlength{\baselineskip}{12pt}
+		\zihao{-5}\songti
 	}
 
 	% 设置文档默认行距为20pt
