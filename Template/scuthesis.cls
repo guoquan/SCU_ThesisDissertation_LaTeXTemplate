@@ -228,7 +228,7 @@
             \ \\[-1cm]
 			% 校名和论文类别、“四川大学”字样
 			{
-				\includegraphics[width=8cm]{../Template/Components/Images/SCU_TITLE}
+				\includegraphics[width=8cm]{SCU_TITLE}
                 \\[1.5cm]
 				\makebox[10.5cm][s]{\zihao{-0}\heiti\thesisname}
 			}
