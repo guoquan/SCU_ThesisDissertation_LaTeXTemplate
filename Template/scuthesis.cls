@@ -69,6 +69,8 @@
     \endgroup
 }
 
+\RequirePackage{calc}
+
 \newcommand{\fillspacetextblock}[2]{%
     \makebox[#1][s]{%
         \begin{CJKfilltwosides}{#1}%
@@ -231,9 +233,9 @@
             \zihao{-3}\kaishu
             \begin{filltable}
                 \begin{tabular}{cc}
-                    \fillspacetextblock{3em}{\textbf{\label@title}}  & \fillinblank{20em}{\parbox[b]{20em}{\centering\textbf{\@CoverTitle}}}\\[0.7cm] % 使用 parbox 支持换行
-                    \fillspacetextblock{3em}{\textbf{\label@author}} & \fillinblank{6em}{\textbf{\@author}}%
-                                                                       \fillspacetextblock{4em}{\textbf{\label@accomplishdate}}\fillinblank{10em}{\textbf{\@accomplishdate}}
+                    \fillspacetextblock{3em}{\textbf{\label@title}}  & \fillinblank{21em}{\parbox[b]{21em}{\centering\textbf{\@CoverTitle}}}\\[0.7cm] % 使用 parbox 支持换行
+                    \fillspacetextblock{3em}{\textbf{\label@author}} & \fillinblank{7em-2\tabcolsep-\widthof{\quad}}{\textbf{\@author}}\quad%
+                                                                       \fillspacetextblock{4em}{\textbf{\label@accomplishdate}}\hspace{2\tabcolsep}\fillinblank{10em}{\textbf{\@accomplishdate}}
                 \end{tabular}
             \end{filltable}
             \ \\[2.6cm]
