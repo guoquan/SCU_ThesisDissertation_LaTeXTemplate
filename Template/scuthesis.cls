@@ -296,11 +296,11 @@
 		\begin{center}
 			\zihao{-2}\songti\@title
             \par\ \par
-			\zihao{-4}\kaishu{\@major\label@major}
+			\zihao{-4}\songti\@major\label@major
             \par\ \par
-			\heiti{\CHSauthortype} \; \kaishu{\@author}
+			\heiti\CHSauthortype \; \kaishu\@author
 			\quad\quad
-			\heiti{\label@supervisor} \; \kaishu{\@supervisor}
+			\heiti\label@supervisor \; \kaishu\@supervisor
 		\end{center}
         \par\ \par
 	}
@@ -314,7 +314,7 @@
 		\cleardoublepage
 		\par\ \par
 		\begin{center}
-			\zihao{-2}{\@ENGtitle}
+			\zihao{-2}\@ENGtitle
             \par\ \par
 			\zihao{-4}\@ENGmajor
             \par\ \par
