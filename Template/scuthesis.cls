@@ -19,9 +19,10 @@
 % 此文档类以 ctexbook 为基础，设定页面尺寸为 A4，默认字号为小四号。
 % CJKfntef 宏包提供了 \maketitle 中用到的 \CJKunderline 命令。
 % fancyhdr 宏包提供了方便使用的命令用于设置页眉、页脚。
-\LoadClass[fntef, a4paper, fancyhdr, cs4size]{ctexbook}
+\LoadClass[hyperref, fntef, a4paper, fancyhdr, cs4size]{ctexbook}
 % 加入判断支持
 \RequirePackage{ifthen}
+\RequirePackage{ifpdf}
 % 此宏包提供图形支持。
 \RequirePackage{graphicx}
 % 设置16K页面
@@ -39,29 +40,28 @@
 \fancyfoot[CO,CE]{\zihao{-5}\thepage}
 
 % 使用epstopdf宏包重定向eps输出路径，避免图片错误
-\RequirePackage[outdir=./]{epstopdf}
+\ifpdf
+    \RequirePackage[outdir=./]{epstopdf}
+\fi
 
 % 使用hyperref宏包去除索引上的颜色标记
-\RequirePackage{hyperref}
-\hypersetup{%
-    pdfborder  = 0 0 0,
-    colorlinks = true, % also fix color in toc
-    linkcolor  = black
-}
+\RequirePackage[colorlinks=false]{hyperref}
+\hypersetup{pdfborder = 0 0 0}
 % override default color of \CJKunderline
 \renewcommand{\CJKunderlinecolor}{\color{black}}
 % 使用tocloft宏包修改目录样式
 \RequirePackage{tocloft}
 % 目录中显示目录项和参考文献项
 \RequirePackage{tocbibind}
-% 使用caption2宏包修改题注样式
-\RequirePackage{caption2}
+% 使用caption宏包修改题注样式
+\RequirePackage{caption}
 % 修改题注样式
-\renewcommand{\captionfont}{\zihao{5}\rm\heiti}
-\renewcommand{\captionlabeldelim}{~}
+\DeclareCaptionFont{scucap}{\zihao{5}\rm\heiti}
+\captionsetup{labelsep=space,font=scucap}
 % 使用natbib宏包修改参考文献行距和参考标记样式
 %               上标	方括号	逗号分隔	自动排序分类
 \RequirePackage[super,square,comma,sort&compress]{natbib}
+\RequirePackage{hypernat}
 \setlength{\bibsep}{0.5ex}
 % 定义 \incite 命令，用于如“文献[1]”这样的引用
 \newcommand*{\incite}{}
