@@ -15,7 +15,7 @@
 % 此文档类以 ctexbook 为基础，设定页面尺寸为 A4，默认字号为小四号。
 % CJKfntef 宏包提供了 \maketitle 中用到的 \CJKunderline 命令。
 % fancyhdr 宏包提供了方便使用的命令用于设置页眉、页脚。
-\LoadClass[fntef, a4paper, fancyhdr, cs4size]{ctexbook}
+\LoadClass[hyperref, fntef, a4paper, fancyhdr, cs4size]{ctexbook}
 % 加入判断支持
 \RequirePackage{ifthen}
 \RequirePackage{ifpdf}
@@ -49,7 +49,7 @@
 \RequirePackage{tocloft}
 % 目录中显示目录项和参考文献项
 \RequirePackage{tocbibind}
-% 使用caption2宏包修改题注样式
+% 使用caption宏包修改题注样式
 \RequirePackage{caption}
 % 修改题注样式
 \DeclareCaptionFont{scucap}{\zihao{5}\rm\heiti}
@@ -57,6 +57,7 @@
 % 使用natbib宏包修改参考文献行距和参考标记样式
 %               上标	方括号	逗号分隔	自动排序分类
 \RequirePackage[super,square,comma,sort&compress]{natbib}
+\RequirePackage{hypernat}
 \setlength{\bibsep}{0.5ex}
 % 定义 \incite 命令，用于如“文献[1]”这样的引用
 \newcommand*{\incite}{}
