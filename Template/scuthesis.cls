@@ -292,6 +292,27 @@
         \end{tabular*}
     \end{center}
 }
+% define \originalstate to generate original statement form
+\newcommand{\originalstate}{
+    % 原创性声明
+    \chapter{声明}
+    本人所呈交的学位论文是本人在导师指导下进行的研究工作及取得的研究成果。据我所知，除了本文中特别加以标注和致谢的地方外，论文中不包含其他人已经发表或撰写过的研究成果，也不包含为获得{\universityname}或其他教育机构的学位或证书而使用过的材料。与我一同工作的同志对本研究所做的任何贡献均已在论文中作了明确的说明并表示谢意。
+
+    本学位论文成果是本人在{\universityname}读书期间在导师指导下取得的，论文成果归{\universityname}所有，特此声明。
+    \vspace{4cm}
+    \autograph
+}
+
+% define \copyrightauth to generate copyright authorization form
+\newcommand{\copyrightauth}{
+    % 学位论文版权使用授权书
+    \chapter{学位论文版权使用授权书}
+    本学位论文作者完全了解{\universityname}有关保留、使用学位论文的规定，有权保留并向国家有关部门或机构送交论文的复印件和磁盘，允许论文被查阅和借阅。本人授权{\universityname}可以将学位论文的全部或部分内容编入有关数据库进行检索，可以采用影印、缩印或扫描等复制手段保持、汇编学位论文。
+
+    （保密的学位论文在解密后适用本授权书）
+    \vspace{4cm}
+    \autograph
+}
 
 % 定义中文摘要环境
 \newenvironment{CHSabstract}
@@ -420,6 +441,18 @@
 \newcommand{\crefmiddleconjunction}{,}
 \newcommand{\creflastconjunction}{,}
 \newcommand{\crefrangeconjunction}{-}
+
+% embed format setting in \*matter
+\let\oldfrontmatter\frontmatter
+\renewcommand{\frontmatter}{\oldfrontmatter\pagenumbering{Roman}\pagestyle{fancy}\makechaptertitlecenter}
+
+\let\oldmainmatter\mainmatter
+\renewcommand{\mainmatter}{\oldmainmatter\pagenumbering{arabic}\pagestyle{fancy}\makechaptertitleleft}
+
+\let\oldbackmatter\backmatter
+\renewcommand{\backmatter}{\oldbackmatter\makechaptertitlecenter}
+
+
 
 % 加载配置文件
 \AtEndOfClass{\input{scuthesis.def}}
