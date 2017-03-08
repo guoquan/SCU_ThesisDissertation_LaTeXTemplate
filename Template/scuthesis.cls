@@ -206,6 +206,16 @@
 \renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\cftbeforetoctitleskip}{10pt}
 \renewcommand{\cftaftertoctitleskip}{10pt}
+% set the same format for the list of figures
+\renewcommand{\cftloftitlefont}{\hfill\zihao{-3}\rm\heiti}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftbeforeloftitleskip}{10pt}
+\renewcommand{\cftafterloftitleskip}{10pt}
+% set the same format for the list of tables
+\renewcommand{\cftlottitlefont}{\hfill\zihao{-3}\rm\heiti}
+\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cftbeforelottitleskip}{10pt}
+\renewcommand{\cftafterlottitleskip}{10pt}
 % 定义引导线格式，为点，点距0.5，章节标题也使用引导线
 \renewcommand{\cftdot}{.}
 \renewcommand{\cftdotsep}{0.5}
@@ -217,7 +227,10 @@
 \newcommand{\maketoc}{
     \thispagestyle{empty}
     \cleardoublepage
-    \tableofcontents\pagenumbering{roman}
+    \tableofcontents
+    \cleardoublepage
+    \listoffigures
+    \listoftables
     \thispagestyle{fancy}
 }
 
